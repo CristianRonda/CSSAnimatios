@@ -1,0 +1,120 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: #222;
+}
+
+.reloj {
+  position: relative;
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(#666, #222);
+  border-radius: 50%;
+}
+
+.hora {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  left: calc(50% - 1em);
+  top: 1em;
+  color: wheat;
+  transform-origin: center calc(250px - 1em);
+}
+
+.hora:nth-child(1) {
+  transform: rotate(30deg);
+}
+
+.hora:nth-child(2) {
+  transform: rotate(60deg);
+}
+
+.hora:nth-child(3) {
+  transform: rotate(90deg);
+}
+
+.hora:nth-child(4) {
+  transform: rotate(120deg);
+}
+
+.hora:nth-child(5) {
+  transform: rotate(150deg);
+}
+
+.hora:nth-child(6) {
+  transform: rotate(180deg);
+}
+
+.hora:nth-child(7) {
+  transform: rotate(210deg);
+}
+
+.hora:nth-child(8) {
+  transform: rotate(240deg);
+}
+
+.hora:nth-child(9) {
+  transform: rotate(270deg);
+}
+
+.hora:nth-child(10) {
+  transform: rotate(300deg);
+}
+
+.hora:nth-child(11) {
+  transform: rotate(330deg);
+}
+
+.hora:nth-child(12) {
+  transform: rotate(360deg);
+}
+
+.aguja {
+  width: 2px;
+  height: 200px;
+  position: absolute;
+  background: white;
+  left: 249px;
+  top: 50px;
+  transform-origin: center bottom;
+}
+
+.segundos {
+  animation: segundos 60s infinite linear;
+}
+
+@keyframes segundos {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.minutos {
+  animation: minutos 3600s infinite linear;
+}
+
+@keyframes minutos {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.horas {
+  animation: horas 7200s infinite linear;
+}
+
+@keyframes horas {
+  to {
+    transform: rotate(1turn);
+  }
+}

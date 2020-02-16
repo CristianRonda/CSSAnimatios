@@ -1,0 +1,99 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+:root {
+  --time: 1s;
+  --time2: calc(var(--time)*2);
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.bg {
+  animation: bg 4s forwards;
+  fill: none;
+  stroke: #000;
+  stroke-width: 5px;
+  stroke-dashoffset: 0px;
+  stroke-dasharray: 1000px;
+}
+
+@keyframes bg {
+  from {
+    fill: none;
+    stroke-dashoffset: 1000px;
+  }
+  to {
+    stroke-dashoffset: 0px;
+    fill: #E23237;
+    /* stroke-width: 0; */
+  }
+}
+
+.bg2 {
+  animation: bg-2 1s 4s forwards;
+  opacity: 0;
+}
+
+@keyframes bg-2 {
+  to {
+    opacity: 1;
+  }
+}
+
+.a {
+  transform-origin: center center;
+  animation: animateA 1s 5s forwards;
+  opacity: 0;
+}
+
+@keyframes animateA {
+  from {
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.panel {
+  animation: panel var(--time) forwards;
+  transform: translateX(-1000px) rotate(360deg);
+}
+
+@keyframes panel {
+  to {
+    transform: translateX(0) rotate(0);
+  }
+}
+
+.i_letter, .i_dot_letter, .g_letter {
+  animation: animationI var(--time) var(--time) forwards;
+  transform: translateY(-1000px);
+}
+
+@keyframes animationI {
+  to {
+    transform: translateX(0);
+  }
+}
+
+.text {
+  opacity: 0;
+  animation: text var(--time) var(--time2) forwards;
+}
+
+@keyframes text {
+  to {
+    opacity: 1;
+  }
+}

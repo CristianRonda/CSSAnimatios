@@ -1,0 +1,100 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+body {
+  counter-reset: contador;
+  animation: contar 10s forwards alternate infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+body::after {
+  content: counter(contador);
+  font-size: 16em;
+}
+
+@keyframes contar {
+  0% {
+    counter-increment: contador 0;
+    background: #cc0000;
+    color: #fff;
+  }
+  10% {
+    counter-increment: contador 1;
+    background: #cc7a00;
+    color: #fff;
+  }
+  20% {
+    counter-increment: contador 2;
+    background: #a3cc00;
+    color: #fff;
+  }
+  30% {
+    counter-increment: contador 3;
+    background: #29cc00;
+    color: #fff;
+  }
+  40% {
+    counter-increment: contador 4;
+    background: #00cc52;
+    color: #fff;
+  }
+  50% {
+    counter-increment: contador 5;
+    background: #00cccc;
+    color: #fff;
+  }
+  60% {
+    counter-increment: contador 6;
+    background: #0052cc;
+    color: #fff;
+  }
+  70% {
+    counter-increment: contador 7;
+    background: #2900cc;
+    color: #fff;
+  }
+  80% {
+    counter-increment: contador 8;
+    background: #a300cc;
+    color: #fff;
+  }
+  90% {
+    counter-increment: contador 9;
+    background: #cc007a;
+    color: #fff;
+  }
+  100% {
+    counter-increment: contador 10;
+    background: #cc0000;
+    color: #fff;
+  }
+}
+
+.ball {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 200px;
+  background: red;
+  border-radius: 50%;
+  animation-name: change-color;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  border: 2px solid #000;
+}
+
+@keyframes change-color {
+  100% {
+    transform: translate(calc(100vw - 100%));
+    background: green;
+  }
+}

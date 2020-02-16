@@ -1,0 +1,130 @@
+body {
+  font-size: 2em;
+  background-color: rgba(253, 148, 9, 0.993);
+  display: flex;
+  min-height: 100vh;
+}
+
+a {
+  text-align: center;
+  color: black;
+  background-color: yellow;
+  text-decoration: none;
+  position: relative;
+  left: 0;
+  transform: translateY(0);
+  transition: background-color .5s linear, color .5s 0.5s linear, transform 0.5s, left 5s 0.5s;
+}
+
+p {
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+p:hover a {
+  background-color: red;
+  color: green;
+  transform: translateY(-50%);
+  left: -1000%;
+}
+
+.ball {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  position: relative;
+  background-color: rgb(54, 11, 243);
+  transition: left .5s, background-color 5s, top .5s .5s;
+}
+
+.animate .ball {
+  transition: left .5s, color 5s, top .5s .5s;
+  background-color: cadetblue;
+  left: calc(100vw - 175px);
+  top: calc(100vh - 175px)
+}
+
+button {
+  margin: auto;
+}
+
+.activeClick {
+  background-color: #d2691e;
+}
+
+.activeClick:active {
+  transform: scale(0.9);
+}
+
+h1 {
+  transition: color 1s 1s;
+  background-color: rgba(34, 123, 255, 0.4);
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  transform: translateX(-150%);
+  transition: transform 2s .5s;
+}
+
+h1:target {
+  transform: translateX(0);
+}
+
+.close {
+  background-color: transparent;
+  margin: 1rem;
+  color: white
+}
+
+.elementDiv {
+  align-self: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+form {
+  margin: 2em;
+}
+
+input {
+  border: 1px solid #eee;
+  transition: background 1s;
+  height: 30px;
+  color: #fff;
+}
+
+input:focus {
+  box-shadow: none;
+  outline: none;
+  background: white;
+}
+
+input:valid {
+  background: lime;
+}
+
+input:invalid {
+  background: red;
+}
+
+input:out-of-range+label::after {
+  content: "debe ser mayor a 18";
+}
+
+input:in-range+label::after {
+  content: "es correcta";
+}

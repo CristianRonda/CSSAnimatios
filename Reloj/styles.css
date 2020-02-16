@@ -1,0 +1,166 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+:root {
+  --size: 600px;
+  --size_media: calc(var(--size)/2);
+  --size_dot: calc(var(--size)/4.5);
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+  background: radial-gradient(circle at 0 0, #666, #222, #000);
+  justify-content: center;
+  align-content: center;
+  perspective: 1000px;
+  perspective-origin: center center;
+  animation: camera 6s infinite alternate;
+}
+
+@keyframes camera {
+  25% {
+    perspective-origin: right top;
+  }
+  50% {
+    perspective-origin: left top;
+  }
+  75% {
+    perspective-origin: left bottom;
+  }
+  100% {
+    perspective-origin: right bottom;
+  }
+}
+
+.cube {
+  /* transform: translateZ(-500px); */
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-1000px) rotateX(0) rotateY(0);
+  /*NUNCA OLVIDAR ESTA PROPIEDAD*/
+  animation: rotation 6s infinite alternate ease-in-out;
+}
+
+@keyframes rotation {
+  20% {
+    transform: translateZ(-1000px) rotateX(.5turn) rotateY(0);
+  }
+  40% {
+    transform: translateZ(-1000px) rotateX(0) rotateY( 1turn);
+  }
+  60% {
+    transform: translateZ(-1000px) rotateX(.5turn) rotateY(0);
+  }
+  80% {
+    transform: translateZ(-1000px) rotateX(0) rotateY( 1turn);
+  }
+}
+
+.face {
+  position: absolute;
+  border: 2px solid #000;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: bold;
+  color: black;
+  background: white;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.dot {
+  width: var(--size_dot);
+  height: var(--size_dot);
+  border-radius: 50%;
+  margin: auto;
+  background: radial-gradient(circle at 0 0, #666, #222, #000);
+}
+
+.right {
+  transform: translateX(var(--size_media)) translateZ(calc(-1*var(--size_media))) rotateY(90deg);
+}
+
+.right .dot:nth-child(2) {
+  grid-area: 3/3/3/4;
+}
+
+.left {
+  transform: translateX(calc(-1*var(--size_media))) translateZ(calc(-1*var(--size_media))) rotateY(270deg);
+}
+
+.left .dot:nth-child(2) {
+  grid-area: 2/2/3/3;
+}
+
+.left .dot:nth-child(3) {
+  grid-area: 3/3/4/4;
+}
+
+.top {
+  transform: translateY(calc(-1*var(--size_media))) translateZ(calc(-1*var(--size_media))) rotateX(90deg);
+}
+
+.top .dot:nth-child(2) {
+  grid-area: 3/1;
+}
+
+.top .dot:nth-child(3) {
+  grid-area: 1/3;
+}
+
+.top .dot:nth-child(4) {
+  grid-area: 3/3;
+}
+
+.bottom {
+  transform: translateY(var(--size_media)) translateZ(calc(-1*var(--size_media))) rotateX(90deg);
+}
+
+.bottom .dot:nth-child(2) {
+  grid-area: 3/1;
+}
+
+.bottom .dot:nth-child(3) {
+  grid-area: 2/2;
+}
+
+.bottom .dot:nth-child(4) {
+  grid-area: 1/3;
+}
+
+.bottom .dot:nth-child(5) {
+  grid-area: 3/3;
+}
+
+.back {
+  transform: translateZ(calc(-1*var(--size))) rotateX(180deg);
+}
+
+.back .dot:nth-child(4) {
+  grid-area: 3/1/4/2;
+}
+
+.back .dot:nth-child(5) {
+  grid-area: 3/2/4/3;
+}
+
+.back .dot:nth-child(6) {
+  grid-area: 3/3/4/4;
+}
+
+.front .dot {
+  grid-area: 2/2/3/3;
+}

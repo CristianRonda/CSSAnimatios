@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+p {
+  margin: 1em auto
+}
+
+#button {
+  background: cadetblue;
+  margin: 0 auto;
+  color: white;
+  padding: .5em 1.5em;
+  cursor: pointer;
+}
+
+.animate {
+  animation: grow 1s alternate 3;
+}
+
+@keyframes grow {
+  to {
+    background: chartreuse;
+  }
+}
